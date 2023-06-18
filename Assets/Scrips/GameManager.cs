@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+ 
     private Vector3 respawnPosition;
 
     private void Awake()
@@ -48,4 +49,7 @@ public class GameManager : MonoBehaviour
         respawnPosition = newSpawnPoint;
 
     }
+
+
+    
 }
