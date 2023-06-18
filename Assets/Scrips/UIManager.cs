@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +10,9 @@ public class UIManager : MonoBehaviour
     public Image black;
     public float fadeSpeed;
     public bool fadeToBlack, fadeFromBlack;
+    public Text pointsText;
+    public Text healthText;
+   
 
     private void Awake()
     {
@@ -22,6 +25,8 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
+
+
         if (fadeToBlack)
         {
             black.color = new Color(black.color.r,black.color.g,black.color.b,Mathf.MoveTowards(black.color.a, 1f, fadeSpeed * Time.deltaTime));
@@ -40,5 +45,24 @@ public class UIManager : MonoBehaviour
             }
         }
 
+        pointsText.text = PointsManager.instance.points.ToString();
+        setHealthUI(HealthManager.instance.health);
+
+    }
+
+    public void setHealthUI(int health)
+    {
+
+        if (health == 1)
+            healthText.text = "♥";
+        if (health == 2)
+            healthText.text = "♥♥";
+        if (health == 3)
+            healthText.text = "♥♥♥";
+        if (health == 4)
+            healthText.text = "♥♥♥♥";
+        if (health == 5)
+            healthText.text = "♥♥♥♥♥";
     }
 }
+

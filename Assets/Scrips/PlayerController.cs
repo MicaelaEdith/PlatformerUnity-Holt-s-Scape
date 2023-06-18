@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed;
     public float jumpForce;
     public float gravityScale = 5f;
+    public bool slow = false;
     private bool jump = true;
 
     private Vector3 moveDirection;
@@ -59,13 +60,15 @@ public class PlayerController : MonoBehaviour
 
         playerAnimator.SetFloat("Speed", Mathf.Abs(moveDirection.x) + Mathf.Abs(moveDirection.z));
         playerAnimator.SetBool("IsGrounded", character.isGrounded);
+        playerAnimator.SetBool("Slow", slow);
+            
 
         if (Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0)
         {
             transform.rotation = Quaternion.Euler(0f, mainCamera.transform.rotation.eulerAngles.y, 0f);
 
         }
-
+        
     }
 
 
