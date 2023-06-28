@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape)||Input.GetKeyDown(KeyCode.Pause))
+            pausePanel();
         
     }
 
@@ -50,6 +52,27 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void pausePanel()
+    {
+        if (UIManager.instance.pausePanel.activeInHierarchy)
+        {
+            UIManager.instance.pausePanel.SetActive(false);
+            Time.timeScale = 1f;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
 
-    
+        }
+        else
+        {
+            UIManager.instance.pausePanel.SetActive(true);
+            Time.timeScale = 0f;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+        
+
+    }
+
+
+
 }

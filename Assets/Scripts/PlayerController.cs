@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
 
         if (character.isGrounded || jump)
         {
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetButtonDown("Jump")&&!playerAnimator.GetBool("Slow")&&!playerAnimator.GetBool("Bird"))
             {
                 if(character.isGrounded)
                    moveDirection.y = jumpForce;

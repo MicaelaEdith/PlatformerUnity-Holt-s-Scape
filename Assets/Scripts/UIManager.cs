@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     public bool fadeToBlack, fadeFromBlack;
     public Text pointsText;
     public Text healthText;
+    public GameObject pausePanel;
    
 
     private void Awake()
@@ -64,5 +65,17 @@ public class UIManager : MonoBehaviour
         if (health == 5)
             healthText.text = "♥♥♥♥♥";
     }
+
+    public void btnResume()
+    {
+        GameManager.instance.pausePanel();
+
+    }
+
+    public void btnQuit()
+    {
+        
+    }
+
 }
 
