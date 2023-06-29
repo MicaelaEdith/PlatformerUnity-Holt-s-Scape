@@ -68,7 +68,7 @@ public class UIManager : MonoBehaviour
 
     public void btnResume()
     {
-        GameManager.instance.pausePanel();
+        GameManager.instance.PausePanel();
 
     }
 

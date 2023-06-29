@@ -5,6 +5,7 @@ using UnityEngine;
 public class Points : MonoBehaviour
 {
     public int pointValue;
+    public int sfx;
 
     void Start()
     {
@@ -19,6 +20,10 @@ public class Points : MonoBehaviour
     {
         Destroy(gameObject);
         if (other.tag == "Player")
+        {
             PointsManager.instance.addPoints(pointValue);
+            AudioManager.instance.PlaySFX(sfx);
+
+        }
     }
 }

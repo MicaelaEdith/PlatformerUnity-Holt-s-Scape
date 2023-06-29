@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape)||Input.GetKeyDown(KeyCode.Pause))
-            pausePanel();
+            PausePanel();
         
     }
 
@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void pausePanel()
+    public void PausePanel()
     {
         if (UIManager.instance.pausePanel.activeInHierarchy)
         {
