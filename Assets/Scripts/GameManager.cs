@@ -22,8 +22,13 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)||Input.GetKeyDown(KeyCode.Pause))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.Pause))
+        {
+          
             PausePanel();
+
+
+        }
         
     }
 
@@ -54,14 +59,17 @@ public class GameManager : MonoBehaviour
 
     public void PausePanel()
     {
+
         if (UIManager.instance.pausePanel.activeInHierarchy)
         {
             UIManager.instance.pausePanel.SetActive(false);
+            UIManager.instance.btnCloseOptions();
             Time.timeScale = 1f;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
 
         }
+
         else
         {
             UIManager.instance.pausePanel.SetActive(true);
@@ -69,9 +77,16 @@ public class GameManager : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
         }
-        
 
+        if (UIManager.instance.optionsPanel.activeInHierarchy)
+        {
+            UIManager.instance.pausePanel.SetActive(true);
+            UIManager.instance.optionsPanel.SetActive(false);
+
+        }
     }
+
+
 
 
 

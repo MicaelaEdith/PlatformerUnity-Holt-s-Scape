@@ -12,7 +12,9 @@ public class UIManager : MonoBehaviour
     public bool fadeToBlack, fadeFromBlack;
     public Text pointsText;
     public Text healthText;
-    public GameObject pausePanel;
+    public GameObject pausePanel, optionsPanel;
+
+    public Slider musicSlider, sfxSlider;
    
 
     private void Awake()
@@ -72,10 +74,36 @@ public class UIManager : MonoBehaviour
 
     }
 
+    public void btnOptions()
+    {
+       
+        optionsPanel.SetActive(true);
+        pausePanel.SetActive(false);
+
+    }
+
+    public void setMusic()
+    {
+        AudioManager.instance.setMusic();
+
+    }
+
+    public void setSfx()
+    {
+        AudioManager.instance.setSfx();
+    }
+
+    public void btnCloseOptions()
+    {
+        GameManager.instance.PausePanel();
+        
+
+    }
+    
+
     public void btnQuit()
     {
         
     }
-
 }
 
