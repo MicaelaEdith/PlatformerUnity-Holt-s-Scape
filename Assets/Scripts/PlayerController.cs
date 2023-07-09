@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public static PlayerController instance;
+    public GameObject enemyTarget;
   
     
     public float moveSpeed;
@@ -27,7 +28,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-
+        
     }
 
 

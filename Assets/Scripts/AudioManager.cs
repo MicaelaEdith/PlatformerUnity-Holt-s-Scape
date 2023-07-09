@@ -45,4 +45,10 @@ public class AudioManager : MonoBehaviour
         musicMixer.audioMixer.SetFloat("sfxVol", UIManager.instance.musicSlider.value);
     }
 
+    public void StopSFX(int sfxToStop)
+    {
+        sfx[sfxToStop].Stop();
+
+    }
+
 }

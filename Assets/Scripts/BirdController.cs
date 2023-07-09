@@ -4,51 +4,85 @@ using UnityEngine;
 
 public class BirdController : MonoBehaviour
 {
-    public int Speed;
-    public bool Quiet;
-    public bool Atack;
-    bool startAnim = true, newGame=true;
+    Vector3 startPosition; 
 
     public Animator birdAnimator;
-    public CharacterController character;
+    public static BirdController instance;
+    public bool attack = false;
+    private bool goAttack = true;
     
+   
 
-    private Vector3 moveDirection;
+    private void Awake()
+    {
+        instance = this;
+        startPosition = transform.position;
+       
+    }
 
     void Start()
     {
+        
         
     }
 
     
     void Update()
     {
-        if (newGame) StartAnimation();
-    }
 
-    private void StartAnimation()
-    {
-        if (startAnim)
-        {
-            moveDirection.z = transform.position.z + 0.000000001f;
-            moveDirection.y = transform.position.y - 0.00000001f;
-            character.Move(moveDirection * Time.deltaTime);
-
-            if (transform.position.z >= 150 && startAnim)
-            {
-                transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-                startAnim = false;
-            }
-        }
-        if (!startAnim)
-        {
-             moveDirection.y = transform.position.y + 0.00000001f;
-             moveDirection.z = transform.position.z - 0.00000001f;
-             Debug.Log(transform.position.z);
             
 
-           // character.Move(moveDirection * Time.deltaTime);
+
+        if (attack)
+            Invoke("Attack",1.5f);
+        else
+            transform.position = Vector3.MoveTowards(transform.position, startPosition, 30f * Time.deltaTime);
+        if (transform.position == startPosition)
+        {
+            birdAnimator.SetBool("Idle", true);
+            
         }
+
+    }
+
+    private void Attack()
+    {
+        if (birdAnimator.GetBool("Idle"))
+            birdAnimator.SetBool("Idle", false);
+
+        if (goAttack)
+            transform.position = Vector3.MoveTowards(transform.position, PlayerController.instance.enemyTarget.transform.position, 20f * Time.deltaTime);
+        else
+            Invoke("goBack",1F);
+    }
+    private void goBack()
+    {
+            transform.position = Vector3.MoveTowards(transform.position, startPosition, 20f * Time.deltaTime);
+            transform.rotation = Quaternion.Euler(0f, 180, 0f);
+            
+        if (transform.position == startPosition&&!goAttack)
+            {
+                goAttack = true;
+                transform.rotation = Quaternion.Euler(0f, 180, 0f);
+        }
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            attack = false;
+            HealthManager.instance.Hurt(1);
+            birdAnimator.SetBool("Attack", true);
+            goAttack = false;
+
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        birdAnimator.SetBool("Attack", false);
         
     }
 

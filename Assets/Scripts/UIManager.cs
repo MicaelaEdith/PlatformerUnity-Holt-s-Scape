@@ -78,7 +78,6 @@ public class UIManager : MonoBehaviour
     {
        
         optionsPanel.SetActive(true);
-        pausePanel.SetActive(false);
 
     }
 
@@ -95,8 +94,9 @@ public class UIManager : MonoBehaviour
 
     public void btnCloseOptions()
     {
-        GameManager.instance.PausePanel();
-        
+        optionsPanel.SetActive(false);
+
+
 
     }
     

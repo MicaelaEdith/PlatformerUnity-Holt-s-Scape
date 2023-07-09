@@ -22,9 +22,9 @@ public class HealthManager : MonoBehaviour
         
     }
 
-    public void Hurt()
+    public void Hurt(int hurt)
     {
-        health--;
+        health-=hurt;
         if (health <= 0)
         {
             health = 0;
