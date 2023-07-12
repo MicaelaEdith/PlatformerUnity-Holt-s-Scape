@@ -20,12 +20,6 @@ public class BirdController : MonoBehaviour
        
     }
 
-    void Start()
-    {
-        
-        
-    }
-
     
     void Update()
     {
@@ -34,7 +28,7 @@ public class BirdController : MonoBehaviour
 
 
         if (attack)
-            Invoke("Attack",1.5f);
+            Invoke("Attack",1f);
         else
             transform.position = Vector3.MoveTowards(transform.position, startPosition, 30f * Time.deltaTime);
         if (transform.position == startPosition)
@@ -51,9 +45,9 @@ public class BirdController : MonoBehaviour
             birdAnimator.SetBool("Idle", false);
 
         if (goAttack)
-            transform.position = Vector3.MoveTowards(transform.position, PlayerController.instance.enemyTarget.transform.position, 20f * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, PlayerController.instance.enemyTarget.transform.position, 35f * Time.deltaTime);
         else
-            Invoke("goBack",1F);
+            Invoke("goBack",1.5f);
     }
     private void goBack()
     {
@@ -75,6 +69,7 @@ public class BirdController : MonoBehaviour
             attack = false;
             HealthManager.instance.Hurt(1);
             birdAnimator.SetBool("Attack", true);
+            PlayerController.instance.playerAnimator.SetBool("Bird", true);
             goAttack = false;
 
         }
@@ -83,7 +78,8 @@ public class BirdController : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         birdAnimator.SetBool("Attack", false);
-        
+        PlayerController.instance.playerAnimator.SetBool("Bird", false);
+
     }
 
 }

@@ -6,7 +6,6 @@ public class slowController : MonoBehaviour
 {
     public int sfx;
 
-    
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player")
@@ -30,7 +29,7 @@ public class slowController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag=="Player")
+        if(other.tag=="Player"&&!UIManager.instance.pausePanel.activeInHierarchy&&PlayerController.instance.moveSpeed>.1f)
             AudioManager.instance.PlaySFX(sfx);
 
 

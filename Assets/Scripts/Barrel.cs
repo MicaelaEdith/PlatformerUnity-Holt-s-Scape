@@ -21,7 +21,7 @@ public class Barrel : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            transform.position = Vector3.MoveTowards(transform.position, waitPoints[1].transform.position, 4.5f * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, waitPoints[1].transform.position, 3f * Time.deltaTime);
 
         }
     }

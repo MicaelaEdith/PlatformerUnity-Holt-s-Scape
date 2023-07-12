@@ -7,15 +7,6 @@ public class Points : MonoBehaviour
     public int pointValue;
     public int sfx;
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
     private void OnTriggerEnter(Collider other)
     {
         Destroy(gameObject);

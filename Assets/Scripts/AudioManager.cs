@@ -21,14 +21,6 @@ public class AudioManager : MonoBehaviour
         music[0].Play();
         
     }
-
-    
-    void Update()
-    {
-
-        
-    }
-
     public void PlaySFX(int sfxToPlay)
     {
         sfx[sfxToPlay].Play();

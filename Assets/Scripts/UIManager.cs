@@ -100,10 +100,5 @@ public class UIManager : MonoBehaviour
 
     }
     
-
-    public void btnQuit()
-    {
-        
-    }
 }
 

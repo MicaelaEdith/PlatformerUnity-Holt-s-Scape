@@ -17,11 +17,6 @@ public class HealthManager : MonoBehaviour
         
     }
 
-    void Update()
-    {
-        
-    }
-
     public void Hurt(int hurt)
     {
         health-=hurt;

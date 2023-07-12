@@ -6,7 +6,7 @@ public class HurtPlayer : MonoBehaviour
 {
     public int hurtP;
    
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     { 
         if(other.tag == "Player")
         {

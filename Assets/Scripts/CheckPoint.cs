@@ -4,17 +4,7 @@ using UnityEngine;
 
 public class CheckPoint : MonoBehaviour
 {
-    
-    void Start()
-    {
-        
-    }
-
-    
-    void Update()
-    {
-        
-    }
+    public GameObject color;
 
     private void OnTriggerEnter(Collider other)
     {
