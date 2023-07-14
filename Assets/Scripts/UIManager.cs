@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -100,5 +101,10 @@ public class UIManager : MonoBehaviour
 
     }
     
+    public void btnQuit()
+    {
+        Application.Quit();
+    }
+
 }
 
