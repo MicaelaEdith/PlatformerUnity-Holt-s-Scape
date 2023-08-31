@@ -1,6 +1,6 @@
 # JuegoPlataformaUnity
 Unity, C#, blender.
-making progress -- 50%
+
 
 ![Main](https://github.com/MicaelaEdith/JuegoPlataformaUnity/assets/109880462/10d20980-6e72-45df-998b-ec52754368f0)
 ![readmeGame1](https://github.com/MicaelaEdith/JuegoPlataformaUnity/assets/109880462/9fcfe772-9fb4-4089-b6cb-c1a34a385e69)
